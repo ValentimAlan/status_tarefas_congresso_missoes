@@ -24,17 +24,18 @@
             background: linear-gradient(90deg, #6b8e23, #8db600);
         }
         
-        /* Efeito de Barra Pulsante (LED) na cor Verde Oliva */
-        @keyframes pulse-green {
-            0% { box-shadow: 0 0 5px #8db600, 0 0 10px #8db600; opacity: 0.7; }
-            50% { box-shadow: 0 0 15px #8db600, 0 0 25px #8db600; opacity: 1; }
-            100% { box-shadow: 0 0 5px #8db600, 0 0 10px #8db600; opacity: 0.7; }
+        /* Efeito de Movimento Real (Shimmer) na cor Verde Oliva */
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
         }
-        .led-bar-green {
-            background: #8db600;
-            animation: pulse-green 1.5s infinite ease-in-out;
+        .shimmer-bar {
+            background: linear-gradient(90deg, #4a5d23 25%, #8db600 50%, #4a5d23 75%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite linear;
             height: 100%;
             border-radius: 999px;
+            box-shadow: 0 0 10px rgba(141, 182, 0, 0.3);
         }
 
         /* Bullet Points Customizados */
@@ -64,6 +65,17 @@
             border-radius: 4px;
             font-size: 10px;
         }
+
+        /* Bloco de Observação */
+        .obs-box {
+            background: rgba(141, 182, 0, 0.05);
+            border-left: 2px solid #8db600;
+            padding: 8px 12px;
+            margin-top: 10px;
+            font-size: 12px;
+            color: #8db600;
+            font-style: italic;
+        }
     </style>
 </head>
 <body class="p-4 md:p-8">
@@ -91,7 +103,7 @@
                 </div>
                 <div class="flex items-center gap-2">
                     <div class="w-3 h-3 rounded-full bg-[#8db600] shadow-[0_0_8px_#8db600]"></div>
-                    <span>Atividade Contínua (Pulsante)</span>
+                    <span>Atividade Contínua (Em Movimento)</span>
                 </div>
                 <div class="flex items-center gap-2">
                     <div class="w-3 h-3 rounded-full bg-red-500"></div>
@@ -132,7 +144,7 @@
             </div>
         </div>
 
-        <!-- TAREFA 5: MÍDIA E DIVULGAÇÃO (BARRA PULSANTE VERDE) -->
+        <!-- TAREFA 5: MÍDIA E DIVULGAÇÃO (BARRA EM MOVIMENTO) -->
         <div class="card p-5 rounded-xl shadow-md">
             <div class="flex justify-between items-start mb-3">
                 <div class="flex items-center gap-3">
@@ -155,8 +167,8 @@
                 <li>Produção de vídeos e chamadas nos cultos</li>
             </ul>
 
-            <div class="progress-bar-bg h-3 w-full rounded-full overflow-hidden mb-2 p-[1px]">
-                <div class="led-bar-green" style="width: 100%"></div>
+            <div class="progress-bar-bg h-3 w-full rounded-full overflow-hidden mb-2">
+                <div class="shimmer-bar" style="width: 100%"></div>
             </div>
             <div class="flex justify-between text-[10px] text-gray-500 uppercase font-bold">
                 <span>Data de Entrega: <span class="text-[#8db600]">Contínua</span></span>
@@ -269,6 +281,38 @@
             <ul class="bullet-list">
                 <li>Montagem do grupo de apoio</li>
                 <li>Reunião de alinhamento (Aguardando)</li>
+            </ul>
+
+            <div class="obs-box">
+                <i class="fas fa-info-circle"></i> Aguarde a reunião de alinhamento sobre isso.
+            </div>
+
+            <div class="progress-bar-bg h-2.5 w-full rounded-full overflow-hidden mb-2 mt-4">
+                <div class="bg-gray-600 h-full rounded-full" style="width: 0%"></div>
+            </div>
+            <div class="flex justify-between text-[10px] text-gray-500 uppercase font-bold">
+                <span>Data de Entrega: <span class="text-red-500">Aguardando Informação</span></span>
+                <span>Status do Andamento</span>
+            </div>
+        </div>
+
+        <!-- TAREFA 7: CRONOGRAMA DO EVENTO -->
+        <div class="card p-5 rounded-xl shadow-md border-gray-600">
+            <div class="flex justify-between items-start mb-3">
+                <div class="flex items-center gap-3">
+                    <div class="p-2 bg-[#3f413b] rounded-lg text-gray-400">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg">Cronograma do Evento</h3>
+                        <p class="text-xs text-gray-400">Resp: Pr. Alan e Pr. Carlos</p>
+                    </div>
+                </div>
+                <span class="status-pending-tag">Pendente</span>
+            </div>
+            
+            <ul class="bullet-list">
+                <li>Definição de horários e ordem das atividades (25 e 26/04)</li>
             </ul>
 
             <div class="progress-bar-bg h-2.5 w-full rounded-full overflow-hidden mb-2">
