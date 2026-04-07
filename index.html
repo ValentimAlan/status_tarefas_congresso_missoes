@@ -10,12 +10,12 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #1a1c18; /* Fundo escuro baseado no site */
+            background-color: #1a1c18;
             color: #e2e8f0;
         }
         .card {
             background-color: #2d2f2a;
-            border-left: 4px solid #4a5d23; /* Verde oliva do site */
+            border-left: 4px solid #4a5d23;
         }
         .progress-bar-bg {
             background-color: #3f413b;
@@ -24,7 +24,10 @@
             background: linear-gradient(90deg, #6b8e23, #8db600);
         }
         
-        /* Efeito de Movimento Real (Shimmer) na cor Verde Oliva */
+        .progress-bar-fill-yellow {
+            background: linear-gradient(90deg, #ca8a04, #eab308);
+        }
+        
         @keyframes shimmer {
             0% { background-position: -200% 0; }
             100% { background-position: 200% 0; }
@@ -38,7 +41,6 @@
             box-shadow: 0 0 10px rgba(141, 182, 0, 0.3);
         }
 
-        /* Bullet Points Customizados */
         .bullet-list { list-style: none; padding-left: 0; margin-bottom: 1rem; }
         .bullet-list li {
             position: relative;
@@ -55,7 +57,6 @@
             left: 0;
         }
 
-        /* Destaque PENDENTE */
         .status-pending-tag {
             color: #ef4444;
             font-weight: 800;
@@ -66,7 +67,16 @@
             font-size: 10px;
         }
 
-        /* Bloco de Observação */
+        .status-inprogress-tag {
+            color: #eab308;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: rgba(234, 179, 8, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+        }
+
         .obs-box {
             background: rgba(141, 182, 0, 0.05);
             border-left: 2px solid #8db600;
@@ -80,7 +90,6 @@
 </head>
 <body class="p-4 md:p-8">
 
-    <!-- CABEÇALHO -->
     <header class="max-w-2xl mx-auto text-center mb-8">
         <h1 class="text-2xl md:text-3xl font-bold text-[#8db600] mb-2">2º Congresso de Missões</h1>
         <p class="text-lg text-gray-400">Status de Tarefas - 25 e 26 de Abril</p>
@@ -89,7 +98,6 @@
 
     <main class="max-w-2xl mx-auto space-y-6">
 
-        <!-- LEGENDA -->
         <section class="card p-4 rounded-xl shadow-lg border-l-0 border-t-4 border-[#8db600]">
             <h2 class="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-3">Legenda de Status</h2>
             <div class="grid grid-cols-2 gap-2 text-xs">
@@ -109,10 +117,13 @@
                     <div class="w-3 h-3 rounded-full bg-red-500"></div>
                     <span>Pendente</span>
                 </div>
+                <div class="flex items-center gap-2">
+                    <div class="w-3 h-3 rounded-full bg-[#eab308]"></div>
+                    <span>Em Andamento</span>
+                </div>
             </div>
         </section>
 
-        <!-- TAREFA 1 -->
         <div class="card p-5 rounded-xl shadow-md">
             <div class="flex justify-between items-start mb-3">
                 <div class="flex items-center gap-3">
@@ -144,7 +155,6 @@
             </div>
         </div>
 
-        <!-- TAREFA 5: MÍDIA E DIVULGAÇÃO (BARRA EM MOVIMENTO) -->
         <div class="card p-5 rounded-xl shadow-md">
             <div class="flex justify-between items-start mb-3">
                 <div class="flex items-center gap-3">
@@ -176,7 +186,6 @@
             </div>
         </div>
 
-        <!-- TAREFA 2 -->
         <div class="card p-5 rounded-xl shadow-md border-gray-600">
             <div class="flex justify-between items-start mb-3">
                 <div class="flex items-center gap-3">
@@ -188,7 +197,7 @@
                         <p class="text-xs text-gray-400">Responsável: Pr. Carlos</p>
                     </div>
                 </div>
-                <span class="status-pending-tag">Pendente</span>
+                <span class="status-inprogress-tag">Em Andamento</span>
             </div>
             
             <ul class="bullet-list">
@@ -197,15 +206,14 @@
             </ul>
 
             <div class="progress-bar-bg h-2.5 w-full rounded-full overflow-hidden mb-2">
-                <div class="bg-gray-600 h-full rounded-full" style="width: 0%"></div>
+                <div class="progress-bar-fill-yellow h-full rounded-full" style="width: 20%"></div>
             </div>
             <div class="flex justify-between text-[10px] text-gray-500 uppercase font-bold">
                 <span>Data de Entrega: <span class="text-red-500">Aguardando Informação</span></span>
-                <span>Status do Andamento</span>
+                <span class="text-[#eab308]">20%</span>
             </div>
         </div>
 
-        <!-- TAREFA 3 -->
         <div class="card p-5 rounded-xl shadow-md border-gray-600">
             <div class="flex justify-between items-start mb-3">
                 <div class="flex items-center gap-3">
@@ -214,10 +222,10 @@
                     </div>
                     <div>
                         <h3 class="font-bold text-lg">Decoração da Igreja</h3>
-                        <p class="text-xs text-gray-400">Resp: Dca. Isabella, Irmão Élio e Irmã Kelly</p>
+                        <p class="text-xs text-gray-400">Resp: Dca. Isabella</p>
                     </div>
                 </div>
-                <span class="status-pending-tag">Pendente</span>
+                <span class="status-inprogress-tag">Em Andamento</span>
             </div>
             
             <ul class="bullet-list">
@@ -227,15 +235,14 @@
             </ul>
 
             <div class="progress-bar-bg h-2.5 w-full rounded-full overflow-hidden mb-2">
-                <div class="bg-gray-600 h-full rounded-full" style="width: 0%"></div>
+                <div class="progress-bar-fill-yellow h-full rounded-full" style="width: 20%"></div>
             </div>
             <div class="flex justify-between text-[10px] text-gray-500 uppercase font-bold">
-                <span>Data de Entrega: <span class="text-red-500">Aguardando Informação</span></span>
-                <span>Status do Andamento</span>
+                <span>Data de Entrega: <span class="text-white">24 ou 25/04</span></span>
+                <span class="text-[#eab308]">20%</span>
             </div>
         </div>
 
-        <!-- TAREFA 4 -->
         <div class="card p-5 rounded-xl shadow-md border-gray-600">
             <div class="flex justify-between items-start mb-3">
                 <div class="flex items-center gap-3">
@@ -244,10 +251,10 @@
                     </div>
                     <div>
                         <h3 class="font-bold text-lg">Lembranças</h3>
-                        <p class="text-xs text-gray-400">Responsável: Dca. Isabella</p>
+                        <p class="text-xs text-gray-400">Responsável: Dca. Isabella, Irmão Élio e Irmã Kelly</p>
                     </div>
                 </div>
-                <span class="status-pending-tag">Pendente</span>
+                <span class="status-inprogress-tag">Em Andamento</span>
             </div>
             
             <ul class="bullet-list">
@@ -255,15 +262,14 @@
             </ul>
 
             <div class="progress-bar-bg h-2.5 w-full rounded-full overflow-hidden mb-2">
-                <div class="bg-gray-600 h-full rounded-full" style="width: 0%"></div>
+                <div class="progress-bar-fill-yellow h-full rounded-full" style="width: 20%"></div>
             </div>
             <div class="flex justify-between text-[10px] text-gray-500 uppercase font-bold">
-                <span>Data de Entrega: <span class="text-red-500">Aguardando Informação</span></span>
-                <span>Status do Andamento</span>
+                <span>Data de Entrega: <span class="text-white">11/04</span></span>
+                <span class="text-[#eab308]">20%</span>
             </div>
         </div>
 
-        <!-- TAREFA 6 -->
         <div class="card p-5 rounded-xl shadow-md border-gray-600">
             <div class="flex justify-between items-start mb-3">
                 <div class="flex items-center gap-3">
@@ -280,7 +286,7 @@
             
             <ul class="bullet-list">
                 <li>Montagem do grupo de apoio</li>
-                <li>Reunião de alinhamento (Aguardando)</li>
+                <li>Reunião de alinhamento (Quarta, 08/04)</li>
             </ul>
 
             <div class="obs-box">
@@ -296,7 +302,6 @@
             </div>
         </div>
 
-        <!-- TAREFA 7: CRONOGRAMA DO EVENTO -->
         <div class="card p-5 rounded-xl shadow-md border-gray-600">
             <div class="flex justify-between items-start mb-3">
                 <div class="flex items-center gap-3">
